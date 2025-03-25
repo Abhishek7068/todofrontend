@@ -1,0 +1,48 @@
+.inputText{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 10px 100px 10px 10px;
+    box-sizing: border-box;
+    
+}
+
+.inputText:hover {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.94);
+   
+    
+}
+
+.inputText:focus {
+    background-color: aliceblue;
+   
+    
+}
+
+.input-container {
+    position: relative;
+    width: 100%; 
+    
+}
+  
+.SubmitBTN{
+    position: absolute;
+    top: 37%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: #30cbe2;
+    color: black;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    z-index: 1;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.SubmitBTN:hover{
+    background-color: #ff0000;
+}
