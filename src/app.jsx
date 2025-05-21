@@ -3,21 +3,34 @@ import { addTask , fetchTasks, editTask , deleteTask, toggleCompletion} from "./
 import TodoList from "./components/todolist";
 import { useEffect, useState } from "react";
 import "./app.css";
+// import { useAuth } from "./context/authContext";
 
 const App = () => {
     const[tasks, setTasks ] = useState([]);
+    // const { user, logout } = useAuth();
     // checking task debug
     console.log(tasks)
 
     // This ensures the data wont disappear after refreshes
     useEffect(() => {
+    //     if (user){
+    //         loadTasks();
+    //     }
+        
+    // },[user]); 
+
+    // async function loadTasks() {
+    //     const tasksData = await fetchTasks();
+    //     console.log("Setting tasks state:", tasksData);
+    //     setTasks(tasksData);
+    // }
         async function loadTasks() {
             const tasksData = await fetchTasks();
             console.log("Setting tasks state:", tasksData);
             setTasks(tasksData);
         }
         loadTasks();
-    },[]); 
+    },[]);
 
     // handle adding task 
     async function handleAddTask(taskTask) {
@@ -73,9 +86,19 @@ const App = () => {
         <div className="container">
             <div className="todo-container">
                 <h1 className="header">To-Do List</h1>
+                {/* {user && (
+                    <button onClick={logout} className="logout-button">
+                    Logout
+                    </button>
+                )} */}
                 <div className="inside-container">
                     <TodoForm onAddTask={handleAddTask} />
-                    <TodoList tasks={tasks} onEdit={handleEditTask} onDelete={handleDeleteTask} onToggle={handleToggleComplete} />
+                    <TodoList 
+                        tasks={tasks}
+                        onEdit={handleEditTask} 
+                        onDelete={handleDeleteTask} 
+                        onToggle={handleToggleComplete} 
+                    />
                 </div>
             </div>
         </div>
